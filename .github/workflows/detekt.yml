@@ -4,7 +4,7 @@ on:
   push:
     branches: [ develop ]
 
- jobs:
+jobs:
    detekt:
      runs-on: ubuntu-latest
 
