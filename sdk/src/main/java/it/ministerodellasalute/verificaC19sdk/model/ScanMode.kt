@@ -17,16 +17,19 @@
  *  limitations under the License.
  *  ---license-end
  *
- *  Created by osarapulov on 4/29/21 11:32 PM
+ *  Created by kaizen-7 on 23/12/21, 10:32
  */
 
-package it.ministerodellasalute.verificaC19sdk.data.local
+package it.ministerodellasalute.verificaC19sdk.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+enum class ScanMode(val value: String) {
+    STANDARD("3G"),
+    STRENGTHENED("2G"),
+    BOOSTER("BOOSTED"),
+    SCHOOL("SCHOOL"),
+    WORK("WORK");
 
-@Entity(tableName = "blacklist")
-data class Blacklist(
-    @PrimaryKey
-    var bvalue: String
-)
+    companion object {
+        fun from(s: String?): ScanMode = values().find { it.value == s } ?: STANDARD
+    }
+}

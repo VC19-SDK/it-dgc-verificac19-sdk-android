@@ -17,24 +17,16 @@
  *  limitations under the License.
  *  ---license-end
  *
- *  Created by kaizen-7 on 29/12/21, 19:19
+ *  Created by osarapulov on 4/29/21 11:32 PM
  */
 
-package it.ministerodellasalute.verificaC19sdk
+package it.ministerodellasalute.verificaC19sdk.data.local.room
 
-import android.content.Context
-import androidx.startup.Initializer
-import io.realm.Realm
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-class RealmInitializer : Initializer<Realm> {
-
-    override fun create(context: Context): Realm {
-        Realm.init(context)
-        return Realm.getDefaultInstance()
-    }
-
-    override fun dependencies(): List<Class<out Initializer<*>>> {
-        return emptyList()
-    }
-
-}
+@Entity(tableName = "blacklist")
+data class Blacklist(
+    @PrimaryKey
+    var bvalue: String
+)
